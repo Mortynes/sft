@@ -4,7 +4,7 @@ from django.db import models
 class Service(models.Model):
     title = models.CharField(max_length=100, verbose_name="Название услуги")
     description = models.TextField(verbose_name="Описание услуги")
-    image = models.ImageField(upload_to='services/', verbose_name='Изображение услуги')
+    image = models.ImageField(verbose_name='Изображение услуги')
 
     class Meta:
         verbose_name = "Услуга"
@@ -29,7 +29,7 @@ class Advantage(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название проекта')
     description = models.TextField(verbose_name='Описание проекта')
-    image = models.ImageField(upload_to='projects/', verbose_name='Изображение проекта')
+    image = models.ImageField(verbose_name='Изображение проекта')
 
     class Meta:
         verbose_name = "Проект"
@@ -43,7 +43,7 @@ class TeamMember(models.Model):
     name = models.CharField(max_length=255, verbose_name='Имя')
     position = models.CharField(max_length=255, verbose_name='Должность')
     bio = models.TextField(verbose_name='Биография')
-    image = models.ImageField(upload_to='team/', verbose_name='Фотография')
+    image = models.ImageField(verbose_name='Фотография')
 
     class Meta:
         verbose_name = "Член команды"
@@ -56,7 +56,7 @@ class TeamMember(models.Model):
 class Certificate(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название сертификата')
     description = models.TextField(verbose_name='Описание сертификата')
-    image = models.ImageField(upload_to='certificates/', verbose_name='Изображение сертификата')
+    image = models.ImageField(verbose_name='Изображение сертификата')
     issued_at = models.DateField(verbose_name='Дата выдачи')
     expired_at = models.DateField(verbose_name='Дата истечения срока действия')
 

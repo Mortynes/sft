@@ -1,0 +1,184 @@
+{% extends 'main/base.html' %}
+
+     {% block content %}
+     <section id="main" class="wow fadeIn" data-wow-duration="1s">
+         <div id="services-slider" class="carousel slide" data-ride="carousel">
+             <div class="carousel-inner">
+                 {% for service in services %}
+                 <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                     <img src="{{ service.image.url }}" class="d-block w-100" alt="{{ service.title }}">
+                     <div class="carousel-caption d-none d-md-block">
+                         <h3>{{ service.title }}</h3>
+                         <p>{{ service.description }}</p>
+                     </div>
+                 </div>
+                 {% endfor %}
+             </div>
+             <a class="carousel-control-prev" href="#services-slider" role="button" data-slide="prev">
+                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                 <span class="sr-only">Previous</span>
+             </a>
+             <a class="carousel-control-next" href="#services-slider" role="button" data-slide="next">
+                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                 <span class="sr-only">Next</span>
+             </a>
+         </div>
+         </section>
+
+        <section id="about" class="about-us">
+            <h2>О компании</h2>
+            <p>Группа компаний СФТ (ЗАО «Компания СФТ», ООО «СФТ») присутствует на ИТ-рынке с 1993г. Основным продуктом компании является технология Банк+Клиент СФТ™, предназначенная для организации систем финансового документооборота и дистанционного банковского обслуживания (ДБО).</p>
+            <p>Нашу компанию отличает индивидуальный подход к клиентам, глубокое понимание предметной области и высокий уровень технического сопровождения.</p>
+            <p>Многолетний опыт работы с банками, а так же использование последних достижений информационных технологий, позволяют нам уверенно решать любые, сколь угодно сложные и многоуровневые задачи организации финансового документооборота.</p>
+            <p>Эффективность, эргономичность и информационная защищенность наших решений в области ответственного финансового документооборота проверена временем и нашими клиентами.</p>
+            <p>Квалификация сотрудников Компании СФТ подтверждена сертификатами компаний Cisco, Microsoft, HP и позволяют браться за выполнение сложных интеграционных проектов, связанных как с разработкой и внедрением, так и с аутсорсингом, эксплуатацией и технической поддержкой комплексных информационных систем.</p>
+        </section>
+
+       <section id="certificates" class="wow fadeIn" data-wow-duration="1s">
+            <div class="container">
+                <h2 class="section-title">Сертификаты</h2>
+                <div id="certificates-slider" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for certificate in certificates %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="{{ certificate.image.url }}" class="certificate-image img-fluid" alt="{{ certificate.title }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="carousel-caption d-none d-md-block text-left">
+                                        <h5>{{ certificate.title }}</h5>
+                                        <p>{{ certificate.description }}</p>
+                                        <p>Выдан: {{ certificate.issued_at }}</p>
+                                        <p>Действителен до: {{ certificate.expired_at }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <a class="carousel-control-prev" href="#certificates-slider" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#certificates-slider" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <section id="advantages" class="my-5 wow fadeIn d-flex justify-content-center" data-wow-duration="1s">
+            <div class="container">
+                <h2 class="text-center mb-5">Наши преимущества</h2>
+                <div class="row justify-content-center">
+                    {% for advantage in advantages %}
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body advantage-card">
+                                <h5 class="card-title">{{ advantage.title }}</h5>
+                                <p class="card-text advantage-description" style="display: none;">{{ advantage.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+    <section id="team" class="wow fadeIn" data-wow-duration="1s">
+            <div class="container">
+                <h2 class="section-title">Команда</h2>
+                <div id="team-slider" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    {% for team_member in team_members %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                      <img src="{{ team_member.image.url }}" class="team-member-image d-block w-100" alt="{{ team_member.name }}">
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ team_member.name }}</h5>
+                        <p>{{ team_member.position }}</p>
+                        <p>{{ team_member.bio }}</p>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <a class="carousel-control-prev" href="#team-slider" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#team-slider" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+    </section>
+
+    <section id="projects" class="my-5 wow fadeIn d-flex justify-content-center" data-wow-duration="1s">
+            <div class="container">
+                <h2 class="text-center mb-5">Проекты</h2>
+                <div class="row justify-content-center">
+                    {% for project in projects %}
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="#" data-toggle="modal" data-target="#project-{{ project.id }}">
+                                <img src="{{ project.image.url }}" class="card-img-top project-image" alt="{{ project.title }}">
+                                <h5 class="card-title text-center">{{ project.title }}</h5>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% for project in projects %}
+            <div class="modal fade" id="project-{{ project.id }}" tabindex="-1" role="dialog" aria-labelledby="project-{{ project.id }}-label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="project-{{ project.id }}-label">{{ project.title }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>{{ project.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+
+
+     <section id="contact" class="my-5 d-flex justify-content-center">
+        <div class="card" style="width: 100%; max-width: 600px;">
+            <div class="card-body">
+                <h2 class="text-center">Обратная связь</h2>
+                <form action="{% url 'contact' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea class="form-control" id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

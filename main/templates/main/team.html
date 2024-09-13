@@ -1,0 +1,25 @@
+<div class="container">
+    <h2 class="section-title">Our Team</h2>
+    <div id="team-slider" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        {% for team_member in team_members %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <img src="{{ team_member.image.url }}" class="team-member-image d-block w-100" alt="{{ team_member.name }}">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{ team_member.name }}</h5>
+            <p>{{ team_member.position }}</p>
+            <p>{{ team_member.bio }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <a class="carousel-control-prev" href="#team-slider" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#team-slider" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>

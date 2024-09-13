@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+     <html lang="ru">
+     <head>
+         <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+         <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+
+         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+         <title>СФТ</title>
+     </head>
+     <body>
+         <header class="d-flex justify-content-between align-items-center p-3">
+             <div>
+                 <a href="/"><img src="{% static 'img/logo.png' %}"></a>
+
+                 <a class="contact-link" href="#contact">Связаться с нами</a>
+
+             </div>
+             <nav>
+                 <ul class="nav">
+                     <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#main">Услуги</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#projects">Проекты</a></li>
+                     <li class="nav-item"><a class="nav-link" href="#about">О нас</a></li>
+                 </ul>
+             </nav>
+         </header>
+
+         {% block content %}
+         {% endblock %}
+
+         <footer class="d-flex justify-content-between p-3">
+             <div>
+                 <img src="{% static 'img/logo.png' %}">
+                 <p>email@example.com</p>
+                 <p>123-456-7890</p>
+             </div>
+             <div>
+                 <p class="nav-item"><a class="nav-link" href="/">Главная</a></p>
+                 <p class="nav-item"><a class="nav-link" href="#main">Услуги</a></p>
+                 <p class="nav-item"><a class="nav-link" href="#projects">Проекты</a></p>
+                 <p class="nav-item"><a class="nav-link" href="#about">О нас</a></p>
+             </div>
+         </footer>
+
+
+
+
+         <script>
+             $(document).ready(function(){
+             $('.card').hover(function(){
+             $(this).find('.card-text').slideToggle();
+             });
+         });
+         </script>
+
+         <script>
+             new WOW().init();
+         </script>
+         <script>
+            document.querySelectorAll('.advantage-card').forEach(function(card) {
+                card.addEventListener('mouseenter', function() {
+                    const description = this.querySelector('.advantage-description');
+                    description.classList.add('show'); // Добавляем класс для показа
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    const description = this.querySelector('.advantage-description');
+                    description.classList.remove('show'); // Убираем класс для скрытия
+                });
+            });
+         </script>
+        <script>document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+        </script>
+
+     </body>
+     </html>

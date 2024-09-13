@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+<section class="about-us">
+    <h1>О компании</h1>
+    <p>{{ about_us_text }}</p>
+    <h2>Миссия</h2>
+    <p>{{ mission_text }}</p>
+    <h2>Ценности</h2>
+    <ul>
+        {% for value in values %}
+            <li>{{ value }}</li>
+        {% endfor %}
+    </ul>
+    <h2>История</h2>
+    <p>{{ history_text }}</p>
+</section>

@@ -13,5 +13,5 @@ COPY . .
 
 WORKDIR /app/sft_site
 
-CMD python manage.py collectstatic && python manage.py makemigrations && python manage.py migrate && gunicorn --bind 0.0.0.0:8000 sft_site.wsgi:application
+CMD python manage.py makemigrations && python manage.py migrate && gunicorn --bind 0.0.0.0:8000 sft_site.wsgi:application
 
